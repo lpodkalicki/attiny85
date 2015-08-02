@@ -1,0 +1,23 @@
+# --
+# Copyright (c) 2015, Lukasz Marcin Podkalicki <lukasz@podkalicki.com>
+# example.in file contains only a common settings for all examples in this repo
+# --
+
+F_CPU=1000000
+FUSE_L=0x62
+FUSE_H=0xDF
+CC=avr-gcc
+OBJCOPY=avr-objcopy
+AVRDUDE=avrdude
+MCU=attiny85
+CFLAGS=-std=c99 -Wall -g -Os -mmcu=${MCU} -DF_CPU=${F_CPU} -I. -I../../library/include
+UART_BAUDRATE=19200
+LIBRARY_DIR=../../library/src
+LIBRARY_SRC=\
+	${LIBRARY_DIR}/attiny.c \
+	${LIBRARY_DIR}/attiny_digital.c \
+	${LIBRARY_DIR}/attiny_analog.c \
+	${LIBRARY_DIR}/attiny_timer.c \
+	${LIBRARY_DIR}/attiny_watchdog.c \
+	${LIBRARY_DIR}/attiny_uart.c \
+	${LIBRARY_DIR}/attiny_debug.c
